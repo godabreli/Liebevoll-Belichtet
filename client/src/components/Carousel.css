@@ -1,0 +1,130 @@
+.carousel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-color: rgb(0, 0, 0, 0.9);
+  width: 100vw;
+  height: 100vh;
+}
+
+.xButton {
+  color: rgba(254, 254, 254, 0.7);
+  font-size: 35px;
+  font-weight: 500;
+  line-height: 0.6;
+  position: fixed;
+  z-index: 100;
+  user-select: none;
+  padding: 5px;
+  top: 30px;
+  right: 40px;
+  border: solid 1px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.play {
+  color: rgba(254, 254, 254, 0.7);
+  font-size: 34px;
+  font-weight: 200;
+  position: fixed;
+  z-index: 100;
+  user-select: none;
+  padding: 5px;
+  top: 25px;
+  right: 80px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.button {
+  font-size: 50px;
+  position: absolute;
+  color: rgba(255, 255, 255, 0.571);
+  transition: all 0.5s;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60%;
+  width: 40px;
+  z-index: 50;
+}
+
+.buttonLinks {
+  top: 50%;
+  left: 50px;
+  transform: translate(0, -50%);
+}
+
+.buttonRechts {
+  top: 50%;
+  right: 50px;
+  transform: translate(0, -50%);
+}
+
+.buttonLinks:hover,
+.buttonRechts:hover {
+  transform: translate(0, -50%) scale(1.3);
+  cursor: pointer;
+}
+
+.buttonLinks:active,
+.buttonRechts:active {
+  color: whitesmoke;
+}
+
+@media (max-width: 600px) {
+  .buttonLinks {
+    top: 50%;
+    left: 10px;
+    transform: translate(0, -50%);
+  }
+
+  .buttonRechts {
+    top: 50%;
+    right: 10px;
+    transform: translate(0, -50%);
+  }
+
+  .xButton {
+    right: 25px;
+  }
+}
+
+.xButton:hover,
+.play:hover {
+  z-index: 10;
+  transform: scale(1.2);
+  color: rgba(254, 254, 254, 1);
+}
+
+/* .carouselWrapper {
+  height: 100%;
+  width: 75%;
+  margin: auto;
+  position: relative;
+} */
+
+.carouselImageWrapper {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  opacity: 0;
+  transition: all 1s ease-in-out;
+}
+
+.carouselImageWrapper-visible {
+  opacity: 1;
+}
+
+/* .carouselImage {
+  height: 100%;
+} */

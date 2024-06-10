@@ -1,0 +1,31 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+#root {
+  width: 80vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+@media (max-width: 1300px) {
+  #root {
+    width: 85vw;
+  }
+}
+
+@media (max-width: 900px) {
+  #root {
+    width: 90vw;
+  }
+}
+
+@media (max-width: 450px) {
+  #root {
+    width: 100vw;
+  }
+}

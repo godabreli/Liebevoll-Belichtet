@@ -1,0 +1,20 @@
+.galerieWrapper {
+  margin-bottom: 100px;
+  margin: 20px auto;
+  position: relative;
+}
+
+.galeryImageWrapper {
+  position: absolute;
+  overflow: hidden;
+}
+.galeryImage {
+  width: 100%;
+
+  transition: 1s ease-in-out;
+}
+
+.galeryImageWrapper:hover .galeryImage {
+  cursor: pointer;
+  transform: scale(1.1);
+}

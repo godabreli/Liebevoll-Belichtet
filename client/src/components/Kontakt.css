@@ -1,0 +1,116 @@
+.kontaktFormWrapper {
+  margin-top: 50px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.kontaktForm {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.name,
+.email {
+  height: 40px;
+  border: solid 1px #cfb419;
+  padding: 0 7px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.name:focus,
+.email:focus,
+.message:focus {
+  outline: solid 1px #cfb419;
+}
+
+.message {
+  min-height: 200px;
+  border: solid 1px #cfb419;
+  padding: 0 7px;
+  font-size: 14px;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+.label {
+  color: #404040;
+  text-decoration: none;
+  font-family: "Julius Sans One", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.label-rot {
+  color: red;
+  text-decoration: none;
+  font-family: "Julius Sans One", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.sendButton {
+  width: 150px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 150px;
+  background-color: #cfb419cc;
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+
+.sendButton:hover {
+  cursor: pointer;
+  background-color: #cfb419;
+}
+
+.sendButton-disabled {
+  background-color: #cfb41965;
+}
+
+.sendButton-disabled:hover {
+  background-color: #cfb41965;
+}
+
+.spinner {
+  font-size: 31px;
+}
+
+.spinnerDiv {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.spinnerDiv-drehen {
+  animation: spinner 1.5s linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes spinner {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 1000px) {
+  .kontaktForm {
+    width: 70%;
+  }
+}
+
+@media (max-width: 550px) {
+  .kontaktForm {
+    width: 90%;
+  }
+}

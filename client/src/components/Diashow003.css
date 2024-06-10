@@ -1,0 +1,53 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.diashow03 {
+  width: 100%;
+  height: calc(34vw * 1.45);
+  overflow: hidden;
+}
+
+.diashow-wrapper03 {
+  width: 100%;
+  position: relative;
+}
+
+.imageWrapper {
+  width: 100%;
+  position: absolute;
+  opacity: 0;
+  transform: scale(1);
+  transition: 2.5s ease-in-out;
+}
+
+.imageWrapper-active {
+  opacity: 1;
+}
+
+.diashow-image {
+  width: 100%;
+}
+
+@media (max-width: 1330px) {
+  .diashow03 {
+    width: 100%;
+    height: calc(41vw * 1.45);
+  }
+}
+
+@media (max-width: 1100px) {
+  .diashow03 {
+    width: 100%;
+    height: calc(87vw * 1.45);
+  }
+}
+
+@media (max-width: 550px) {
+  .diashow03 {
+    width: 100%;
+    height: calc(90vw * 1.45);
+  }
+}
