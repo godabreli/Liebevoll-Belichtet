@@ -11,6 +11,10 @@ export const Kontakt = () => {
   const [onBlurName, setOnBlurName] = useState(false);
   const [onBlurEmail, setOnBlurEmail] = useState(false);
   const [onBlurMessage, setOnBlurMessage] = useState(false);
+  const fetchURL =
+    process.env.NODE_ENV === "production"
+      ? "/api/sendEmail"
+      : " http://localhost:3001/api/sendEmail";
 
   const handleSubmit = function (e) {
     e.preventDefault();
@@ -18,31 +22,33 @@ export const Kontakt = () => {
     setIsLoading(true);
     setInputDisabled(true);
 
-    setTimeout(() => {
-      const sendEmail = async function () {
-        try {
-          await fetch(" http://localhost:5000/sendEmail", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(emailData),
-          });
-        } catch (err) {
-          console.log(err);
-        }
-      };
+    const sendEmail = async function () {
+      try {
+        await fetch(fetchURL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(emailData),
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    };
 
+    setTimeout(() => {
+      setIsLoading(false);
       sendEmail();
       setName("");
       setEmail("");
       setMessage("");
-      setIsLoading(false);
       setInputDisabled(false);
       setOnBlurName(false);
       setOnBlurEmail(false);
       setOnBlurMessage(false);
     }, 3000);
+
+    console.log("HALLO");
   };
 
   return (

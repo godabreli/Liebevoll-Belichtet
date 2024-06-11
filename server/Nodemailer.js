@@ -28,7 +28,7 @@ const sendEmail = (contactForm) => {
     if (error) {
       console.log(error);
     } else {
-      console.log("Email Sent");
+      console.log("Email sendt");
     }
   });
 };
