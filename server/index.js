@@ -14,8 +14,9 @@ app.listen(port, (req, res) => {
   console.log(`Server running on port ${port}`);
 });
 
-app.post("/api/sendemail", (req, res) => {
-  sendEmail(req.body);
+app.post("/api/sendemail", async (req, res) => {
+  const status = await sendEmail(req.body);
+  res.send({ status });
 });
 
 app.get("/", (req, res) => {

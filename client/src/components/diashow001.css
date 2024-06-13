@@ -20,7 +20,7 @@
   width: 100%;
   position: absolute;
   opacity: 0;
-  transform: scale(1);
+  /* transform: scale(1); */
   transition: 2.5s ease-in-out;
 }
 

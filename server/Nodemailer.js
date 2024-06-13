@@ -11,7 +11,7 @@ const createMailTransporter = () => {
   return transporter;
 };
 
-const sendEmail = (contactForm) => {
+const sendEmail = async function (contactForm) {
   const transporter = createMailTransporter();
 
   const mailOptions = {
@@ -24,13 +24,21 @@ const sendEmail = (contactForm) => {
            <b>${contactForm.message}</b>`,
   };
 
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log("Email sendt");
-    }
-  });
+  const send = function (transporter, mailOptions) {
+    return new Promise(function (resolve, reject) {
+      transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+          resolve("NO");
+          console.log(error);
+        } else {
+          resolve("YES");
+        }
+      });
+    });
+  };
+
+  const status = await send(transporter, mailOptions);
+  return status;
 };
 
 module.exports = { sendEmail };

@@ -5,6 +5,40 @@
   margin-right: auto;
 }
 
+.popupMessage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  padding-top: 50px;
+  border: solid 1px #cfb419;
+  background-color: white;
+  /* opacity: 0; */
+}
+
+.popupButton {
+  margin-top: auto;
+  margin-bottom: 10px;
+  width: 50px;
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  background-color: #cfb419cc;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.popupButton:hover {
+  background-color: #cfb419;
+}
+
 .kontaktForm {
   width: 50%;
   margin: 0 auto;
@@ -22,12 +56,6 @@
   margin-bottom: 20px;
 }
 
-.name:focus,
-.email:focus,
-.message:focus {
-  outline: solid 1px #cfb419;
-}
-
 .message {
   min-height: 200px;
   border: solid 1px #cfb419;
@@ -35,6 +63,12 @@
   font-size: 14px;
   padding: 5px;
   margin-bottom: 20px;
+}
+
+.name:focus,
+.email:focus,
+.message:focus {
+  outline: solid 1px #cfb419;
 }
 
 .label {
@@ -66,6 +100,7 @@
   color: white;
   border: none;
   border-radius: 10px;
+  transition: 0.4s;
 }
 
 .sendButton:hover {

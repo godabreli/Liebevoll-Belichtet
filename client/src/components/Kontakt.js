@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Kontakt.css";
+import { delay, motion } from "framer-motion";
 
 export const Kontakt = () => {
   const [name, setName] = useState("");
@@ -11,6 +12,8 @@ export const Kontakt = () => {
   const [onBlurName, setOnBlurName] = useState(false);
   const [onBlurEmail, setOnBlurEmail] = useState(false);
   const [onBlurMessage, setOnBlurMessage] = useState(false);
+  const [popupVisible, setPopupVisible] = useState(false);
+  const [popupMessage, setPopupMessage] = useState("");
   const fetchURL =
     process.env.NODE_ENV === "production"
       ? "/api/sendEmail"
@@ -19,40 +22,60 @@ export const Kontakt = () => {
   const handleSubmit = function (e) {
     e.preventDefault();
     const emailData = { name, email, message };
+
     setIsLoading(true);
     setInputDisabled(true);
 
     const sendEmail = async function () {
       try {
-        await fetch(fetchURL, {
+        const status = await fetch(fetchURL, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(emailData),
         });
+        const answer = await status.json();
+        console.log(answer.status);
+        await reset();
+        answer.status === "YES"
+          ? setPopupMessage(
+              "Deine Nachricht wurde gesendet. Ich melde mich schnellst möglich zurück"
+            )
+          : setPopupMessage(
+              "Es gab Probleme beim versenden. Bitte versuche es noch ein Mal"
+            );
+        setPopupVisible(!popupVisible);
+        // setTimeout(() => {
+        //   setPopupVisible(false);
+        // }, 6000);
       } catch (err) {
         console.log(err);
       }
     };
 
-    setTimeout(() => {
-      setIsLoading(false);
-      sendEmail();
-      setName("");
-      setEmail("");
-      setMessage("");
-      setInputDisabled(false);
-      setOnBlurName(false);
-      setOnBlurEmail(false);
-      setOnBlurMessage(false);
-    }, 3000);
+    const reset = function () {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          setIsLoading(false);
+          setName("");
+          setEmail("");
+          setMessage("");
+          setOnBlurName(false);
+          setOnBlurEmail(false);
+          setOnBlurMessage(false);
+          resolve();
+        }, 2000);
+      });
+    };
 
-    console.log("HALLO");
+    sendEmail();
   };
 
   return (
     <div className="kontaktFormWrapper">
+      <Popup />
+
       <form className="kontaktForm" onSubmit={handleSubmit}>
         <span className={onBlurName && name === "" ? "label-rot" : "label"}>
           DEIN NAME:
@@ -113,4 +136,26 @@ export const Kontakt = () => {
       </form>
     </div>
   );
+
+  function Popup() {
+    return (
+      <motion.div
+        className={"popupMessage"}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: popupVisible ? 1 : 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <p>{popupMessage}</p>
+        <button
+          className="popupButton"
+          onClick={() => {
+            setPopupVisible(!popupVisible);
+            setInputDisabled(false);
+          }}
+        >
+          OK
+        </button>
+      </motion.div>
+    );
+  }
 };
