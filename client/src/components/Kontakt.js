@@ -36,14 +36,13 @@ export const Kontakt = () => {
           body: JSON.stringify(emailData),
         });
         const answer = await status.json();
-        console.log(answer.status);
         await reset();
         answer.status === "YES"
           ? setPopupMessage(
               "Deine Nachricht wurde gesendet. Ich melde mich schnellst möglich zurück."
             )
           : setPopupMessage(
-              "Es gab Probleme beim versenden. Bitte versuche es noch ein Mal."
+              "Es gab Probleme beim versenden. Bitte versuche es noch ein Mal. Du erreichst mich auch unter der Nummer +491794839729"
             );
         setPopupVisible(!popupVisible);
         // setTimeout(() => {
