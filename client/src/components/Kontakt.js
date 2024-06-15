@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Kontakt.css";
-import { delay, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 export const Kontakt = () => {
   const [name, setName] = useState("");
@@ -40,10 +40,10 @@ export const Kontakt = () => {
         await reset();
         answer.status === "YES"
           ? setPopupMessage(
-              "Deine Nachricht wurde gesendet. Ich melde mich schnellst möglich zurück"
+              "Deine Nachricht wurde gesendet. Ich melde mich schnellst möglich zurück."
             )
           : setPopupMessage(
-              "Es gab Probleme beim versenden. Bitte versuche es noch ein Mal"
+              "Es gab Probleme beim versenden. Bitte versuche es noch ein Mal."
             );
         setPopupVisible(!popupVisible);
         // setTimeout(() => {
