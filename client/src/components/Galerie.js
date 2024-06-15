@@ -9,7 +9,7 @@ export const Galerie = ({
   setCarouselVisible,
 }) => {
   const [galeryWrapperWidth, setGaleryWrapperWidth] = useState(
-    window.innerWidth * 0.75
+    window.innerWidth > 700 ? window.innerWidth * 0.78 : window.innerWidth * 0.9
   );
 
   useEffect(() => {
