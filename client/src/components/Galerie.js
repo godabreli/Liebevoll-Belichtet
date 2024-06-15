@@ -16,7 +16,7 @@ export const Galerie = ({
     const handleResize = function () {
       setGaleryWrapperWidth(() => {
         if (window.innerWidth > 700) return window.innerWidth * 0.75;
-        if (window.innerWidth < 700 && window.innerWidth > 500)
+        if (window.innerWidth < 700 && window.innerWidth > 550)
           return window.innerWidth * 0.83;
         if (window.innerWidth < 550) return window.innerWidth * 0.9;
 
