@@ -3,9 +3,9 @@ import "./Diashow002.css";
 
 export const Diashow002 = () => {
   const diashow01Src = [
-    "pictures/diashow02-01.jpg",
-    "pictures/diashow02-02.jpg",
-    "pictures/diashow02-03.jpg",
+    "Pictures/diashow02-01.jpg",
+    "Pictures/diashow02-02.jpg",
+    "Pictures/diashow02-03.jpg",
   ];
 
   const [currentImage, setCurretImage] = useState(0);
