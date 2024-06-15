@@ -28,10 +28,10 @@ const sendEmail = async function (contactForm) {
     return new Promise(function (resolve, reject) {
       transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
-          resolve("NO");
+          resolve({ error, status: "NO" });
           console.log(error);
         } else {
-          resolve("YES");
+          resolve({ error: "NO", status: "YES" });
         }
       });
     });

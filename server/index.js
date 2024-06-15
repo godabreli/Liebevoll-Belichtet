@@ -16,7 +16,8 @@ app.listen(port, (req, res) => {
 
 app.post("/api/sendemail", async (req, res) => {
   const status = await sendEmail(req.body);
-  res.send({ status });
+  console.log(status);
+  res.send(status);
 });
 
 app.get("/", (req, res) => {

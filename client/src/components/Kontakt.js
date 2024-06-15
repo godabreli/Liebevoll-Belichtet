@@ -36,14 +36,18 @@ export const Kontakt = () => {
           body: JSON.stringify(emailData),
         });
         const answer = await status.json();
+        console.log(answer);
         await reset();
-        answer.status === "YES"
-          ? setPopupMessage(
-              "Deine Nachricht wurde gesendet. Ich melde mich schnellst möglich zurück."
-            )
-          : setPopupMessage(
-              "Es gab Probleme beim versenden. Bitte versuche es noch ein Mal. Du erreichst mich auch unter der Nummer +491794839729"
-            );
+        if (answer.status === "YES") {
+          setPopupMessage(
+            "Deine Nachricht wurde gesendet. Ich melde mich schnellst möglich zurück."
+          );
+        } else {
+          setPopupMessage(
+            "Es gab Probleme beim versenden. Bitte versuche es noch ein Mal. Du erreichst mich auch unter der Nummer +491794839729"
+          );
+          console.log(status.error);
+        }
         setPopupVisible(!popupVisible);
         // setTimeout(() => {
         //   setPopupVisible(false);
