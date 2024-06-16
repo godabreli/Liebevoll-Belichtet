@@ -17,7 +17,7 @@ export const Kontakt = () => {
   const fetchURL =
     process.env.NODE_ENV === "production"
       ? "/api/sendEmail"
-      : " http://localhost:3001/api/sendEmail";
+      : " http://localhost:5000/api/sendEmail";
 
   const handleSubmit = function (e) {
     e.preventDefault();

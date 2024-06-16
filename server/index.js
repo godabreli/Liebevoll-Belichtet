@@ -5,7 +5,7 @@ require("dotenv").config();
 
 const app = express();
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(cors());
@@ -16,7 +16,6 @@ app.listen(port, (req, res) => {
 
 app.post("/api/sendemail", async (req, res) => {
   const status = await sendEmail(req.body);
-  console.log(status);
   res.send(status);
 });
 
