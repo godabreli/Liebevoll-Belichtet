@@ -46,7 +46,7 @@ export const Kontakt = () => {
           setPopupMessage(
             "Es gab Probleme beim versenden. Bitte versuche es noch ein Mal. Du erreichst mich auch unter der Nummer +491794839729"
           );
-          console.log(status.error);
+          console.log(answer.error);
         }
         setPopupVisible(!popupVisible);
         // setTimeout(() => {
