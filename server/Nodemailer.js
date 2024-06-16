@@ -5,7 +5,7 @@ const createMailTransporter = () => {
     service: "hotmail",
     auth: {
       user: process.env.EMAIL_ADRESS,
-      pass: process.env.EMAI_PASSWORD,
+      pass: process.env.EMAIL_PASSWORD,
     },
   });
   return transporter;
@@ -28,7 +28,7 @@ const sendEmail = async function (contactForm) {
     return new Promise(function (resolve, reject) {
       transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
-          resolve({ error, status: "NO" });
+          resolve({ error: error, status: "NO" });
           console.log(error);
         } else {
           resolve({ error: "NO", status: "YES" });
