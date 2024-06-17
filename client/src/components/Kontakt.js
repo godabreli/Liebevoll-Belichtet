@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Kontakt.css";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const Kontakt = () => {
   const [name, setName] = useState("");
@@ -49,9 +49,6 @@ export const Kontakt = () => {
           console.log(answer.error);
         }
         setPopupVisible(!popupVisible);
-        // setTimeout(() => {
-        //   setPopupVisible(false);
-        // }, 6000);
       } catch (err) {
         console.log(err);
       }
@@ -77,7 +74,28 @@ export const Kontakt = () => {
 
   return (
     <div className="kontaktFormWrapper">
-      <Popup />
+      <AnimatePresence>
+        {popupVisible && (
+          <motion.div
+            className={"popupMessage"}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <p>{popupMessage}</p>
+            <button
+              className="popupButton"
+              onClick={() => {
+                setPopupVisible(!popupVisible);
+                setInputDisabled(false);
+              }}
+            >
+              OK
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <form className="kontaktForm" onSubmit={handleSubmit}>
         <span className={onBlurName && name === "" ? "label-rot" : "label"}>
@@ -139,26 +157,4 @@ export const Kontakt = () => {
       </form>
     </div>
   );
-
-  function Popup() {
-    return (
-      <motion.div
-        className={"popupMessage"}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: popupVisible ? 1 : 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <p>{popupMessage}</p>
-        <button
-          className="popupButton"
-          onClick={() => {
-            setPopupVisible(!popupVisible);
-            setInputDisabled(false);
-          }}
-        >
-          OK
-        </button>
-      </motion.div>
-    );
-  }
 };
