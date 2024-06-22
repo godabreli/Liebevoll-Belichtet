@@ -57,6 +57,7 @@ function App() {
         <Route path="/Kontakt" element={<Kontakt />} />
         <Route path="/Impressum" element={<Impressum />} />
         <Route path="/Dazenschutzerklaerung" element={<Datenschutz />} />
+        <Route path="/*" element={<Home />} />
       </Routes>
       <Footer />
     </>
