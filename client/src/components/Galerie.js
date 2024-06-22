@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./galerie.css";
 import data from "./MyWeddingGaleryImages.json";
+import { Helmet } from "react-helmet-async";
 
 export const Galerie = ({
   currentImage,
@@ -59,33 +60,43 @@ export const Galerie = ({
   const galeryWrapperHeight = Math.max(...calcTops);
 
   return (
-    <div
-      className="galerieWrapper"
-      style={{
-        width: galeryWrapperWidth + "px",
-        height: galeryWrapperHeight + "px",
-      }}
-    >
-      {data.map((img, ind) => (
-        <div
-          onClick={startCarousel}
-          className="galeryImageWrapper"
-          key={ind}
-          style={{
-            top: topsLefts[ind].top + "px",
-            left: topsLefts[ind].left + "px",
-            width: imageDivWidth + "px",
-            height: imageDivheights[ind] + "px",
-          }}
-        >
-          <img
-            data-id={ind}
-            className="galeryImage"
-            src={"Pictures/WeddingGaleryImages/" + img.imageName}
-            alt="Hochzeitsfoto"
-          />
-        </div>
-      ))}
-    </div>
+    <>
+      <Helmet>
+        <title>Hochzeitsfotos</title>
+        <meta
+          name="description"
+          content="Eine Galerie von unvergeslichen Momenten. Hochzeitsfotos die begeistern.  "
+        />
+        <link rel="canonical" href="https://liebevollbelichtet.de/Galerie" />
+      </Helmet>
+      <div
+        className="galerieWrapper"
+        style={{
+          width: galeryWrapperWidth + "px",
+          height: galeryWrapperHeight + "px",
+        }}
+      >
+        {data.map((img, ind) => (
+          <div
+            onClick={startCarousel}
+            className="galeryImageWrapper"
+            key={ind}
+            style={{
+              top: topsLefts[ind].top + "px",
+              left: topsLefts[ind].left + "px",
+              width: imageDivWidth + "px",
+              height: imageDivheights[ind] + "px",
+            }}
+          >
+            <img
+              data-id={ind}
+              className="galeryImage"
+              src={"Pictures/WeddingGaleryImages/" + img.imageName}
+              alt="Hochzeitsfoto"
+            />
+          </div>
+        ))}
+      </div>
+    </>
   );
 };

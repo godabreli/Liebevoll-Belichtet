@@ -3,17 +3,29 @@ import { Diashow001 } from "./Diashow001";
 import { Diashow002 } from "./Diashow002";
 import { Diashow003 } from "./Diashow003";
 import { Diashow004 } from "./Diashow004";
+import { Helmet } from "react-helmet-async";
 
 export const Home = () => {
   return (
     <>
+      <Helmet>
+        <title>Liebevoll Belichtet</title>
+        <meta
+          name="description"
+          content="Hochzeitsfotograf aus Düsseldorf. Kontaktieren sie mich, um Ihre Hochzeit in ein wahres Kunstwerk aus Bildern zu verwandeln."
+        />
+        <link rel="canonical" href="https://liebevollbelichtet.de/" />
+      </Helmet>
       <Diashow001 />
       <div className="element-01">
         <div className="textEl01">
-          <h1>Willkommen</h1>
-          <h2>
-            bei liebevollbelichtet: <br /> Wo Emotionen zur Kunst werden
-          </h2>
+          <h1>
+            Willkommen <br />
+            <span className="h2Text">
+              bei liebevollbelichtet: <br /> Wo Emotionen zur Kunst werden
+            </span>
+          </h1>
+
           <p>
             Hallo und herzlich willkommen! Ich bin Michael, ein
             leidenschaftlicher Hochzeitsfotograf mit einem Auge für Kunst und
