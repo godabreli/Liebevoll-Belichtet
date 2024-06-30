@@ -4,7 +4,6 @@ import { Galerie } from "./components/Galerie";
 import { Home } from "./components/Home";
 import { Kontakt } from "./components/Kontakt";
 import { Uebermich01 } from "./components/Uebermich01";
-import { MobileNavBar } from "./components/MobileNavBar";
 import { Carousel } from "./components/Carousel";
 import { Footer } from "./components/Footer";
 import { Impressum } from "./components/Impressum";
@@ -29,12 +28,12 @@ function App() {
           setCarouselVisible={setCarouselVisible}
         />
       ) : null}
-      {mobNavBarVisible ? (
+      {/* {mobNavBarVisible ? (
         <MobileNavBar
           mobNavBarVisible={mobNavBarVisible}
           setMobNavBarVisible={setMobNavBarVisible}
         />
-      ) : null}
+      ) : null} */}
 
       <Navbar
         mobNavBarVisible={mobNavBarVisible}

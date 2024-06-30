@@ -5,7 +5,7 @@ export const Uebermich01 = () => {
   return (
     <>
       <Helmet>
-        <title>Hochzeitsfotograf</title>
+        <title>Fotograf Hochzeit Düsseldorf</title>
         <meta
           name="description"
           content="Hochzeitsfotograf mit Leidenschaft. Hochzeitsfotos die Ihre schönsten Momente für die Ewigkeit festhalten.  "

@@ -6,6 +6,7 @@
 
 #root {
   width: 80vw;
+  max-width: 1600px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

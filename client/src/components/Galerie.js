@@ -62,7 +62,7 @@ export const Galerie = ({
   return (
     <>
       <Helmet>
-        <title>Hochzeitsfotos</title>
+        <title>Hochzeitsfotos für Inspiration</title>
         <meta
           name="description"
           content="Eine Galerie von unvergeslichen Momenten. Hochzeitsfotos die begeistern.  "

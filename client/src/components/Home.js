@@ -9,7 +9,7 @@ export const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Liebevoll Belichtet</title>
+        <title>Liebevoll Belichtet | Hochzeitsfotograf Düsseldorf</title>
         <meta
           name="description"
           content="Hochzeitsfotograf aus Düsseldorf. Kontaktieren sie mich, um Ihre Hochzeit in ein wahres Kunstwerk aus Bildern zu verwandeln."

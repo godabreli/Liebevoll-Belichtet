@@ -4,6 +4,50 @@
   box-sizing: border-box;
 }
 
+.xbutton {
+  color: white;
+  font-size: 55px;
+  position: fixed;
+  top: 25px;
+  right: 40px;
+  cursor: pointer;
+}
+
+.mobileNavBar {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #cfb419;
+  backdrop-filter: blur(3px);
+  z-index: 100;
+  transform-origin: top;
+}
+
+.navList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%);
+}
+
+.linkWrapper {
+  padding: 5px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.navList a {
+  font-family: "Julius Sans One", sans-serif;
+  font-size: 25px;
+  color: white;
+  text-decoration: none;
+}
+
 .navbar {
   display: flex;
   align-items: flex-end;
@@ -20,6 +64,7 @@
   list-style: none;
   margin-left: auto;
 }
+
 .navbar-list a {
   color: #404040;
   text-decoration: none;

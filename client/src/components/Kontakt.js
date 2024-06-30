@@ -76,7 +76,9 @@ export const Kontakt = () => {
   return (
     <>
       <Helmet>
-        <title>Kontakt Hochzeitsfotograf</title>
+        <title>
+          Kontakt Hochzeitsfotograf | Hochzeitsfotografie Düsseldorf
+        </title>
         <meta
           name="description"
           content="Kontaktieren Sie mich heute, um Ihre Hochzeit in ein Kunstwerk aus wundershönen Erinerungen zu verwandeln.  "
