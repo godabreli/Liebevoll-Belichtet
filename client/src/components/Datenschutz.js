@@ -120,13 +120,13 @@ export const Datenschutz = () => {
             <br />
           </p>
           <p>
-            SiteGround Spain S.L.
+            Strato AG
             <br />
-            Calle de Prim 19,
+            Otto-Ostrowski-Straße 7,
             <br />
-            28004 Madrid,
+            10249 Berlin,
             <br />
-            Spain
+            Deutschland
             <br />
             <h5 className="data02">
               3. Allgemeine Hinweise und Pflichtinformationen
