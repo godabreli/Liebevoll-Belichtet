@@ -66,7 +66,7 @@ export const Carousel = ({
             key={i}
             style={{
               backgroundImage:
-                "url(Pictures/WeddingGaleryImages/" + img.imageName,
+                "url(Pictures/WeddingGaleryImages/" + img.imageName + ")",
               backgroundSize: "cover",
               height: divHeight,
               width: divWidth,

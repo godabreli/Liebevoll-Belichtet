@@ -54,12 +54,13 @@ export const Navbar = ({ mobNavBarVisible, setMobNavBarVisible }) => {
             }}
             className="mobileNavBar"
           >
-            <div
+            <motion.div
               className="xbutton"
+              whileTap={{ scale: 0.85 }}
               onClick={() => setMobNavBarVisible(!mobNavBarVisible)}
             >
               &times;
-            </div>
+            </motion.div>
             <div className="navList">
               {mobNavLinks.map((link, index) => {
                 return (
@@ -73,6 +74,7 @@ export const Navbar = ({ mobNavBarVisible, setMobNavBarVisible }) => {
                         ease: [0.51, 0.21, 0.38, 0.82],
                         delay: (1 + index) * 0.15,
                       }}
+                      whileTap={{ scale: 0.9 }}
                       className="linkDiv"
                     >
                       <Link

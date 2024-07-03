@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./galerie.css";
 import data from "./MyWeddingGaleryImages.json";
 import { Helmet } from "react-helmet-async";
+import { motion } from "framer-motion";
 
 export const Galerie = ({
   currentImage,
@@ -18,7 +19,6 @@ export const Galerie = ({
       setGaleryWrapperWidth(() => {
         if (window.innerWidth > 700) return window.innerWidth * 0.78;
         if (window.innerWidth < 700) return window.innerWidth * 0.9;
-        // if (window.innerWidth < 500) return window.innerWidth * 0.9;
       });
     };
 
@@ -77,8 +77,16 @@ export const Galerie = ({
         }}
       >
         {data.map((img, ind) => (
-          <div
-            onClick={startCarousel}
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{
+              duration: 0.2,
+              type: "spring",
+              damping: 8,
+              stiffness: 80,
+              delay: ind * 0.1,
+            }}
             className="galeryImageWrapper"
             key={ind}
             style={{
@@ -89,12 +97,13 @@ export const Galerie = ({
             }}
           >
             <img
+              onClick={startCarousel}
               data-id={ind}
               className="galeryImage"
               src={"Pictures/WeddingGaleryImages/" + img.imageName}
               alt="Hochzeitsfoto"
             />
-          </div>
+          </motion.div>
         ))}
       </div>
     </>
