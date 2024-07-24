@@ -4,6 +4,12 @@ import { Diashow002 } from "./Diashow002";
 import { Diashow003 } from "./Diashow003";
 import { Diashow004 } from "./Diashow004";
 import { Helmet } from "react-helmet-async";
+import { motion } from "framer-motion";
+
+const spruch1 = "Glücklich allein ist die Seele, die liebt!";
+const spruch2 = "Ein Tropfen Liebe ist mehr als ein Ozean Verstand!";
+const spruch3 =
+  "Ihre Hochzeit ist ein Kunstwerk in Arbeit, und ich freue mich darauf, ein Teil davon zu sein.";
 
 export const Home = () => {
   return (
@@ -37,7 +43,26 @@ export const Home = () => {
         </div>
         <Diashow002 />
       </div>
-      <h3>Glücklich allein ist die Seele, die liebt!</h3>
+      <h3 className="spruch">
+        {spruch1.split(" ").map((wort, index) => {
+          return (
+            <div className="spruch-wortWrapper">
+              <motion.span
+                className="spruch-span"
+                initial={{ opacity: 0, y: "100%" }}
+                whileInView={{ opacity: 1, y: "0%" }}
+                transition={{
+                  duration: 0.3,
+                  delay: index * 0.1,
+                }}
+                viewport={{ margin: "-50px" }}
+              >
+                {wort}
+              </motion.span>
+            </div>
+          );
+        })}
+      </h3>
       <div className="element-02">
         <Diashow003 />
         <div className="textEl02">
@@ -67,7 +92,26 @@ export const Home = () => {
           </p>
         </div>
       </div>
-      <h3>Ein Tropfen Liebe ist mehr als ein Ozean Verstand!</h3>
+      <h3 className="spruch">
+        {spruch2.split(" ").map((wort, index) => {
+          return (
+            <div className="spruch-wortWrapper">
+              <motion.span
+                className="spruch-span"
+                initial={{ opacity: 0, y: "100%" }}
+                whileInView={{ opacity: 1, y: "0%" }}
+                transition={{
+                  duration: 0.3,
+                  delay: index * 0.1,
+                }}
+                viewport={{ margin: "-50px" }}
+              >
+                {wort}
+              </motion.span>
+            </div>
+          );
+        })}
+      </h3>
       <div className="element-03">
         <div className="textEl03">
           <h4>Unsere Reise gemeinsam beginnen</h4>
@@ -95,9 +139,25 @@ export const Home = () => {
         </div>
         <Diashow004 />
       </div>
-      <h3>
-        Ihre Hochzeit ist ein Kunstwerk in Arbeit, und ich freue mich darauf,
-        ein Teil davon zu sein.
+      <h3 className="spruch">
+        {spruch3.split(" ").map((wort, index) => {
+          return (
+            <div className="spruch-wortWrapper">
+              <motion.span
+                className="spruch-span"
+                initial={{ opacity: 0, y: "100%" }}
+                whileInView={{ opacity: 1, y: "0%" }}
+                transition={{
+                  duration: 0.3,
+                  delay: index * 0.1,
+                }}
+                viewport={{ margin: "-50px" }}
+              >
+                {wort}
+              </motion.span>
+            </div>
+          );
+        })}
       </h3>
     </>
   );
