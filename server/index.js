@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const { sendEmail } = require("./Nodemailer");
+const { createGaleryData } = require("./CreateGaleryData");
 require("dotenv").config();
 
 const app = express();
@@ -17,6 +18,11 @@ app.listen(port, (req, res) => {
 app.post("/api/sendemail", async (req, res) => {
   const status = await sendEmail(req.body);
   res.send(status);
+});
+
+app.get("/api/getGaleryData", (req, res) => {
+  const data = createGaleryData();
+  res.send(data);
 });
 
 app.get("/", (req, res) => {

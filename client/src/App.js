@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import { Navbar } from "./components/Navbar";
 import { Galerie } from "./components/Galerie";
 import { Home } from "./components/Home";
@@ -17,23 +18,21 @@ function App() {
   const [mobNavBarVisible, setMobNavBarVisible] = useState(false);
   const [carouselVisible, setCarouselVisible] = useState(false);
   const [currentImage, setCurretImage] = useState(0);
+  const [data, setData] = useState([]);
 
   return (
     <>
-      {carouselVisible ? (
-        <Carousel
-          setCurretImage={setCurretImage}
-          currentImage={currentImage}
-          carouselVisible={carouselVisible}
-          setCarouselVisible={setCarouselVisible}
-        />
-      ) : null}
-      {/* {mobNavBarVisible ? (
-        <MobileNavBar
-          mobNavBarVisible={mobNavBarVisible}
-          setMobNavBarVisible={setMobNavBarVisible}
-        />
-      ) : null} */}
+      <AnimatePresence>
+        {carouselVisible && (
+          <Carousel
+            data={data}
+            setCurretImage={setCurretImage}
+            currentImage={currentImage}
+            carouselVisible={carouselVisible}
+            setCarouselVisible={setCarouselVisible}
+          />
+        )}
+      </AnimatePresence>
 
       <Navbar
         mobNavBarVisible={mobNavBarVisible}
@@ -45,6 +44,8 @@ function App() {
           path="/Galerie"
           element={
             <Galerie
+              data={data}
+              setData={setData}
               setCarouselVisible={setCarouselVisible}
               carouselVisible={carouselVisible}
               currentImage={currentImage}
@@ -55,7 +56,7 @@ function App() {
         <Route path="/Uebermich" element={<Uebermich01 />} />
         <Route path="/Kontakt" element={<Kontakt />} />
         <Route path="/Impressum" element={<Impressum />} />
-        <Route path="/Dazenschutzerklaerung" element={<Datenschutz />} />
+        <Route path="/Datenschutzerklaerung" element={<Datenschutz />} />
         <Route path="/*" element={<Home />} />
       </Routes>
       <Footer />

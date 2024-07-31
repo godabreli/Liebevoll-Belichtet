@@ -10,7 +10,7 @@ export const Footer = () => {
             <Link to="Impressum">Impressum</Link>
           </li>
           <li>
-            <Link to="Dazenschutzerklaerung">Datenschutz</Link>
+            <Link to="Datenschutzerklaerung">Datenschutz</Link>
           </li>
         </ul>
         <div className="iconsDiv">

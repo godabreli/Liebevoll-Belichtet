@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import "./Carousel.css";
-import data from "./MyWeddingGaleryImages.json";
 
 export const Carousel = ({
+  data,
   setCurretImage,
   currentImage,
   carouselVisible,
@@ -31,7 +32,13 @@ export const Carousel = ({
   };
 
   return (
-    <div className="carousel">
+    <motion.div
+      className="carousel"
+      initial={{ y: 100 + "%" }}
+      animate={{ y: 0 }}
+      exit={{ y: 100 + "%" }}
+      transition={{ type: "spring", damping: 15, stiffness: 300 }}
+    >
       <span
         className={play ? "icon-pause2 play" : "icon-play3 play"}
         onClick={() => setPlay(!play)}
@@ -74,7 +81,6 @@ export const Carousel = ({
           ></div>
         );
       })}
-      {/* </div> */}
-    </div>
+    </motion.div>
   );
 };

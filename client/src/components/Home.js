@@ -46,7 +46,7 @@ export const Home = () => {
       <h3 className="spruch">
         {spruch1.split(" ").map((wort, index) => {
           return (
-            <div className="spruch-wortWrapper">
+            <div key={index} className="spruch-wortWrapper">
               <motion.span
                 className="spruch-span"
                 initial={{ opacity: 0, y: "100%" }}
@@ -55,7 +55,7 @@ export const Home = () => {
                   duration: 0.3,
                   delay: index * 0.1,
                 }}
-                viewport={{ margin: "-50px" }}
+                viewport={{ margin: "-20px" }}
               >
                 {wort}
               </motion.span>
@@ -95,7 +95,7 @@ export const Home = () => {
       <h3 className="spruch">
         {spruch2.split(" ").map((wort, index) => {
           return (
-            <div className="spruch-wortWrapper">
+            <div key={index} className="spruch-wortWrapper">
               <motion.span
                 className="spruch-span"
                 initial={{ opacity: 0, y: "100%" }}
@@ -104,7 +104,7 @@ export const Home = () => {
                   duration: 0.3,
                   delay: index * 0.1,
                 }}
-                viewport={{ margin: "-50px" }}
+                viewport={{ margin: "-20px" }}
               >
                 {wort}
               </motion.span>
@@ -142,7 +142,7 @@ export const Home = () => {
       <h3 className="spruch">
         {spruch3.split(" ").map((wort, index) => {
           return (
-            <div className="spruch-wortWrapper">
+            <div key={index} className="spruch-wortWrapper">
               <motion.span
                 className="spruch-span"
                 initial={{ opacity: 0, y: "100%" }}
@@ -151,7 +151,7 @@ export const Home = () => {
                   duration: 0.3,
                   delay: index * 0.1,
                 }}
-                viewport={{ margin: "-50px" }}
+                viewport={{ margin: "-20px" }}
               >
                 {wort}
               </motion.span>

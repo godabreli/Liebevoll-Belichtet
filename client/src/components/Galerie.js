@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./galerie.css";
-import data from "./MyWeddingGaleryImages.json";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 
+const fetchURL =
+  process.env.NODE_ENV === "production"
+    ? "/api/getGaleryData"
+    : " http://localhost:5000/api/getGaleryData";
+
 export const Galerie = ({
+  data,
+  setData,
   currentImage,
   setCurretImage,
   carouselVisible,
@@ -13,6 +19,19 @@ export const Galerie = ({
   const [galeryWrapperWidth, setGaleryWrapperWidth] = useState(
     window.innerWidth > 700 ? window.innerWidth * 0.78 : window.innerWidth * 0.9
   );
+
+  useEffect(() => {
+    async function setGaleryData() {
+      try {
+        const imageDate = await fetch(fetchURL);
+        const imageDataObject = await imageDate.json();
+        setData(imageDataObject);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    setGaleryData();
+  });
 
   useEffect(() => {
     const handleResize = function () {
@@ -36,7 +55,7 @@ export const Galerie = ({
 
   let columns = 3;
   let gap = 8;
-  // let galeryWrapperWidth = window.innerWidth * 0.75;
+
   if (window.innerWidth <= 600) columns = 2;
   if (window.innerWidth <= 700) gap = 5;
 
