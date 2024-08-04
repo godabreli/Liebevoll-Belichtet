@@ -84,10 +84,10 @@ export const Carousel = ({
             dragConstraints={{ left: 0, right: 0 }}
             dragElastic={0.7}
             onDragEnd={(e, info) => {
-              if (info.offset.x > 180) {
+              if (info.offset.x > 150) {
                 left();
               }
-              if (info.offset.x < -180) {
+              if (info.offset.x < -150) {
                 right();
               }
             }}
