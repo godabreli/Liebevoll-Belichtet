@@ -34,7 +34,7 @@
   user-select: none;
   padding: 5px;
   top: 29px;
-  right: 80px;
+  left: 40px;
   cursor: pointer;
   transition: all 0.3s;
 }
@@ -95,7 +95,7 @@
 
   .zeller {
     font-size: 18px;
-    right: 60px;
+    left: 25px;
     top: 31px;
   }
 
